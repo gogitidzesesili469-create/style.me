@@ -1,0 +1,1290 @@
+                        brandBeige: '#faf5ef',<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ქართული მოდის სტუდია & ციფრული გარდერობი</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Georgian -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPink: '#ec4899',
+                        brandPinkLight: '#fbcfe8',
+                        brandPinkSoft: '#fdf2f8',
+                        brandCream: '#fdfbf7',
+                        brandDark: '#18181b',
+                    },
+                    fontFamily: {
+                        georgian: ['Noto Sans Georgian', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            background-color: #faf5ef;
+            color: #18181b;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-dark {
+            background: rgba(24, 24, 27, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf5ef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f472b6;
+            border-radius: 9999px;
+        }
+
+        /* Active Navigation Tab Highlighting */
+        .nav-btn.active {
+            color: #ec4899;
+            border-bottom: 2px solid #ec4899;
+            font-weight: 700;
+        }
+
+        /* Canvas slots positioning */
+        .outfit-layer {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-brandBeige text-brandDark min-h-screen flex flex-col selection:bg-brandPinkLight selection:text-brandDark">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 text-white text-xs py-2 px-4 text-center font-medium shadow-sm">
+        ✨ კეთილი იყოს თქვენი მობრძანება ქართული მოდის ციფრულ სტუდიაში! შექმენით უნიკალური აუთფიტები და ატვირთეთ საკუთარი ტანსაცმელი. ✨
+    </div>
+
+    <!-- MAIN HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 glass shadow-xs border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-300 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid font-bold fa-shirt text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-pink-600 to-rose-800 bg-clip-text text-transparent block">
+                            ქართული მოდა
+                        </span>
+                        <span class="text-[10px] text-pink-500 tracking-widest uppercase block -mt-1 font-semibold">
+                            Fashion Studio
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn active py-2 transition-colors hover:text-pink-600">მთავარი</button>
+                    <button onclick="switchTab('studio')" id="nav-studio" class="nav-btn py-2 transition-colors hover:text-pink-600 flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-pink-500"></i> აუთფიტის აწყობა
+                    </button>
+                    <button onclick="switchTab('styles')" id="nav-styles" class="nav-btn py-2 transition-colors hover:text-pink-600">სტილები</button>
+                    <button onclick="switchTab('catalog')" id="nav-catalog" class="nav-btn py-2 transition-colors hover:text-pink-600">ტანსაცმელი</button>
+                    <button onclick="switchTab('shoes')" id="nav-shoes" class="nav-btn py-2 transition-colors hover:text-pink-600">ფეხსაცმელი</button>
+                    <button onclick="switchTab('bags')" id="nav-bags" class="nav-btn py-2 transition-colors hover:text-pink-600">ჩანთები</button>
+                    <button onclick="switchTab('accessories')" id="nav-accessories" class="nav-btn py-2 transition-colors hover:text-pink-600">აქსესუარები</button>
+                    <button onclick="switchTab('wardrobe')" id="nav-wardrobe" class="nav-btn py-2 transition-colors hover:text-pink-600 text-pink-700 font-semibold">ჩემი გარდერობი</button>
+                    <button onclick="switchTab('favorites')" id="nav-favorites" class="nav-btn py-2 transition-colors hover:text-pink-600">რჩეულები</button>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openUploadModal()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-camera"></i>
+                        <span class="hidden sm:inline">ფოტოს დამატება</span>
+                    </button>
+                    
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-pink-100 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-pink-100 bg-white/95 backdrop-blur-md px-4 py-4 space-y-2 shadow-lg">
+            <button onclick="switchTab('home')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">მთავარი</button>
+            <button onclick="switchTab('studio')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-semibold text-pink-600">✨ აუთფიტის აწყობა</button>
+            <button onclick="switchTab('styles')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">მოდის სტილები</button>
+            <button onclick="switchTab('catalog')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">ტანსაცმლის კატალოგი</button>
+            <button onclick="switchTab('shoes')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">ფეხსაცმელი</button>
+            <button onclick="switchTab('bags')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">ჩანთები</button>
+            <button onclick="switchTab('accessories')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">აქსესუარები</button>
+            <button onclick="switchTab('wardrobe')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium text-pink-700">👗 ჩემი გარდერობი</button>
+            <button onclick="switchTab('favorites')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-pink-50 text-sm font-medium">❤️ რჩეული აუთფიტები</button>
+        </div>
+    </header>
+
+    <!-- TOAST NOTIFICATION POPUP -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- MAIN CONTENT AREA (Dynamic View Switching) -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <section id="page-home" class="space-y-12">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-rose-900 via-pink-900 to-zinc-900 text-white min-h-[420px] flex items-center p-8 sm:p-12 shadow-2xl">
+                <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
+                <div class="relative z-10 max-w-2xl space-y-6">
+                    <span class="inline-block px-4 py-1.5 bg-pink-500/30 backdrop-blur-md rounded-full text-pink-200 text-xs font-semibold tracking-wider uppercase border border-pink-400/30">
+                        ქართული ციფრული მოდის სივრცე
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+                        შექმენი შენი უნიკალური სტილი და აუთფიტები
+                    </h1>
+                    <p class="text-pink-100 text-sm sm:text-base leading-relaxed font-light">
+                        შეახამე სხვადასხვა სტილის ტანსაცმელი, ჩანთები და აქსესუარები. გადაიღე ფოტო ან ატვირთე საკუთარი ტანსაცმელი პირადი ციფრული გარდერობის შესაქმნელად.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('studio')" class="bg-pink-500 hover:bg-pink-600 text-white px-7 py-3.5 rounded-full font-bold shadow-lg hover:shadow-pink-500/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> ააწყვე აუთფიტი
+                        </button>
+                        <button onclick="openUploadModal()" class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-7 py-3.5 rounded-full font-bold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-camera"></i> ატვირთე ფოტო
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Fashion Styles Grid -->
+            <div>
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold tracking-tight text-gray-900">პოპულარული მოდის სტილები</h2>
+                        <p class="text-gray-500 text-sm">აირჩიეთ სტილი და დაათვალიერეთ შესაბამისი ნივთები</p>
+                    </div>
+                    <button onclick="switchTab('styles')" class="text-pink-600 hover:text-pink-700 font-semibold text-sm flex items-center gap-1">
+                        ყველა სტილი <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="home-styles-grid">
+                    <!-- Dynamic rendering from JS -->
+                </div>
+            </div>
+
+            <!-- Quick Showcase / Latest Collection Preview -->
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-pink-100/60">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold">ახალი კოლექცია და რეკომენდაციები</h2>
+                        <p class="text-gray-500 text-xs sm:text-sm">შეუხამეთ ელემენტები პირდაპირ აუთფიტის სტუდიაში</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="filterHomeCatalog('all')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-100 text-pink-700">ყველა</button>
+                        <button onclick="filterHomeCatalog('ზედა')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-pink-50">ტანსაცმელი</button>
+                        <button onclick="filterHomeCatalog('ჩანთა')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-pink-50">ჩანთები</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="home-catalog-grid">
+                    <!-- Dynamic Items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: OUTFIT STUDIO (CANVAS / BUILDER) ================= -->
+        <section id="page-studio" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-pink-200/60 pb-4">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-pink-500"></i> აუთფიტის აწყობის სტუდია
+                    </h1>
+                    <p class="text-gray-500 text-xs sm:text-sm">აირჩიეთ ნივთები კატალოგიდან ან საკუთარი გარდერობიდან და შექმენით სრულყოფილი ლუქი</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="randomizeOutfit()" class="bg-purple-100 hover:bg-purple-200 text-purple-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-shuffle"></i> შემთხვევითი აუთფიტი
+                    </button>
+                    <button onclick="clearOutfitCanvas()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-rotate-left"></i> გასუფთავება
+                    </button>
+                    <button onclick="saveOutfitModal()" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-md transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-bookmark"></i> აუთფიტის შენახვა
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- CANVAS / VISUAL OUTFIT DISPLAY (Left/Center Side) -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-3xl shadow-sm border border-pink-100 relative min-h-[560px] flex flex-col justify-between">
+                    <div class="absolute top-4 left-4 z-10 bg-pink-50 text-pink-700 text-xs px-3 py-1 rounded-full font-semibold border border-pink-200">
+                        ინტერაქტიული კომპოზიცია
+                    </div>
+
+                    <!-- Visual Outfit Canvas Area -->
+                    <div id="outfit-canvas" class="relative w-full h-[460px] bg-gradient-to-b from-slate-50 to-pink-50/30 rounded-2xl border border-dashed border-pink-200 flex items-center justify-center overflow-hidden my-4">
+                        
+                        <!-- Center Avatar Background Outline -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                            <i class="fa-solid fa-user text-[260px] text-gray-400"></i>
+                        </div>
+
+                        <!-- Canvas Dynamic Slots Layered Visual Collages -->
+                        <div class="relative w-full h-full p-4 grid grid-cols-3 grid-rows-3 gap-2 items-center justify-items-center">
+                            
+                            <!-- Outerwear / Jacket Slot (Top Left) -->
+                            <div class="relative group w-28 h-28 flex items-center justify-center bg-white/60 backdrop-blur-xs rounded-xl border border-gray-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-gray-400 font-medium">ქურთუკი</span>
+                                <div id="slot-outerwear" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-gray-300">არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('outerwear')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Top Clothing Slot (Top Center) -->
+                            <div class="relative group w-32 h-32 flex items-center justify-center bg-white/80 backdrop-blur-xs rounded-xl border border-pink-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-pink-400 font-medium">ზედა</span>
+                                <div id="slot-top" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-pink-300">არჩეული არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('top')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Accessories Slot (Top Right) -->
+                            <div class="relative group w-28 h-28 flex items-center justify-center bg-white/60 backdrop-blur-xs rounded-xl border border-gray-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-gray-400 font-medium">აქსესუარი</span>
+                                <div id="slot-accessory" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-gray-300">არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('accessory')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Bag Slot (Middle Left) -->
+                            <div class="relative group w-28 h-28 flex items-center justify-center bg-white/60 backdrop-blur-xs rounded-xl border border-gray-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-gray-400 font-medium">ჩანთა</span>
+                                <div id="slot-bag" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-gray-300">არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('bag')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Bottom Clothing Slot (Middle Center) -->
+                            <div class="relative group w-32 h-32 flex items-center justify-center bg-white/80 backdrop-blur-xs rounded-xl border border-pink-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-pink-400 font-medium">ქვედა</span>
+                                <div id="slot-bottom" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-pink-300">არჩეული არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('bottom')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Extra Accessory / Belt Slot (Middle Right) -->
+                            <div class="relative group w-24 h-24 flex items-center justify-center bg-white/40 rounded-xl border border-dashed border-gray-300 p-2">
+                                <span class="text-[10px] text-gray-400">აქსესუარი 2</span>
+                            </div>
+
+                            <!-- Empty Space Left -->
+                            <div></div>
+
+                            <!-- Shoes Slot (Bottom Center) -->
+                            <div class="relative group w-32 h-28 flex items-center justify-center bg-white/80 backdrop-blur-xs rounded-xl border border-pink-200 shadow-xs p-2">
+                                <span class="absolute top-1 left-2 text-[10px] text-pink-400 font-medium">ფეხსაცმელი</span>
+                                <div id="slot-shoes" class="w-full h-full flex items-center justify-center">
+                                    <span class="text-xs text-pink-300">არ არის</span>
+                                </div>
+                                <button onclick="clearSlot('shoes')" class="hidden group-hover:flex absolute -top-2 -right-2 bg-red-500 text-white w-5 h-5 rounded-full items-center justify-center text-[10px] shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+
+                            <!-- Empty Space Right -->
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- Selected Items Summary Info Bar -->
+                    <div class="bg-pink-50/60 p-3 rounded-xl flex items-center justify-between text-xs text-gray-600">
+                        <span id="outfit-items-count"><i class="fa-solid fa-shirt text-pink-500 mr-1"></i> შერჩეულია 0 ნივთი</span>
+                        <span class="font-semibold text-pink-600 cursor-pointer hover:underline" onclick="randomizeOutfit()">
+                            <i class="fa-solid fa-wand-magic"></i> ავტომატური შეხამება
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ITEM SELECTION PICKER (Right Side Selector Drawer) -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-3xl shadow-sm border border-pink-100 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-bold">აირჩიეთ ნივთები</h2>
+                        <!-- Wardrobe Toggle Button -->
+                        <button onclick="toggleStudioSource('all')" id="btn-source-all" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-pink-500 text-white">
+                            ყველა ნივთი
+                        </button>
+                        <button onclick="toggleStudioSource('wardrobe')" id="btn-source-wardrobe" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-pink-100">
+                            👗 ჩემი გარდერობი
+                        </button>
+                    </div>
+
+                    <!-- Category Selector Tabs -->
+                    <div class="flex space-x-2 overflow-x-auto pb-2 border-b border-gray-100 text-xs font-medium">
+                        <button onclick="filterStudioCategory('all')" class="studio-cat-btn active bg-pink-100 text-pink-700 px-3 py-1.5 rounded-lg whitespace-nowrap">ყველა</button>
+                        <button onclick="filterStudioCategory('ზედა')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">ზედა</button>
+                        <button onclick="filterStudioCategory('ქვედა')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">ქვედა</button>
+                        <button onclick="filterStudioCategory('ქურთუკი')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">ქურთუკი/პალტო</button>
+                        <button onclick="filterStudioCategory('ფეხსაცმელი')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">ფეხსაცმელი</button>
+                        <button onclick="filterStudioCategory('ჩანთა')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">ჩანთა</button>
+                        <button onclick="filterStudioCategory('აქსესუარი')" class="studio-cat-btn bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg whitespace-nowrap">აქსესუარი</button>
+                    </div>
+
+                    <!-- Items Grid for Selection -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[420px] overflow-y-auto pr-1" id="studio-picker-grid">
+                        <!-- Items rendered dynamically -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: FASHION STYLES PAGE ================= -->
+        <section id="page-styles" class="hidden space-y-6">
+            <div>
+                <h1 class="text-2xl font-bold">მოდის სტილები და მიმართულებები</h1>
+                <p class="text-gray-500 text-sm">აღმოაჩინეთ თქვენთვის სასურველი სტილი და შეარჩიეთ შესაბამისი სამოსი</p>
+            </div>
+
+            <!-- Styles Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="all-styles-grid">
+                <!-- Dynamic Items -->
+            </div>
+        </section>
+
+        <!-- ================= PAGE 4: CLOTHING CATALOG ================= -->
+        <section id="page-catalog" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold">ტანსაცმლის სრული კატალოგი</h1>
+                    <p class="text-gray-500 text-sm">გაფილტრეთ კატეგორიის, სტილისა და სეზონის მიხედვით</p>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative w-full md:w-72">
+                    <input type="text" id="catalog-search" oninput="applyCatalogFilters()" placeholder="მოძებნეთ ტანსაცმელი..." class="w-full pl-10 pr-4 py-2.5 rounded-full border border-pink-200 text-xs focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white shadow-xs">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Filters Bar -->
+            <div class="bg-white p-4 rounded-2xl border border-pink-100 flex flex-wrap gap-3 items-center text-xs">
+                <span class="font-bold text-gray-700 mr-2"><i class="fa-solid fa-filter text-pink-500"></i> ფილტრი:</span>
+                
+                <!-- Category Filter -->
+                <select id="filter-category" onchange="applyCatalogFilters()" class="px-3 py-2 rounded-xl border border-gray-200 bg-gray-50 font-medium">
+                    <option value="all">ყველა კატეგორია</option>
+                    <option value="ზედა">მაისურები & ტოპები</option>
+                    <option value="პერანგი">პერანგები & ბლუზები</option>
+                    <option value="სვიტერი">ჰუდები & სვიტერები</option>
+                    <option value="ქურთუკი">ქურთუკები & პალტოები</option>
+                    <option value="ქვედა">ჯინსები & შარვლები</option>
+                    <option value="ქვედაბოლო">ქვედაბოლოები</option>
+                    <option value="კაბა">კაბები</option>
+                </select>
+
+                <!-- Style Filter -->
+                <select id="filter-style" onchange="applyCatalogFilters()" class="px-3 py-2 rounded-xl border border-gray-200 bg-gray-50 font-medium">
+                    <option value="all">ყველა სტილი</option>
+                    <option value="Coquette">კოკეტის სტილი (Coquette)</option>
+                    <option value="Old Money">ძველი ფული (Old Money)</option>
+                    <option value="Clean Girl">მინიმალისტური (Clean Girl)</option>
+                    <option value="Streetwear">ქუჩის სტილი (Streetwear)</option>
+                    <option value="Y2K">2000-იანების სტილი (Y2K)</option>
+                    <option value="Soft Girl">ნაზი და რომანტიკული</option>
+                    <option value="Dark Academia">მუქი აკადემიური</option>
+                </select>
+
+                <!-- Season Filter -->
+                <select id="filter-season" onchange="applyCatalogFilters()" class="px-3 py-2 rounded-xl border border-gray-200 bg-gray-50 font-medium">
+                    <option value="all">ყველა სეზონი</option>
+                    <option value="ზაფხული">ზაფხული</option>
+                    <option value="ზამთარი">ზამთარი</option>
+                    <option value="გაზაფხული">გაზაფხული</option>
+                    <option value="შემოდგომა">შემოდგომა</option>
+                </select>
+
+                <button onclick="resetCatalogFilters()" class="ml-auto text-pink-600 hover:underline font-semibold text-xs">
+                    ფილტრების გასუფთავება
+                </button>
+            </div>
+
+            <!-- Main Items Catalog Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5" id="full-catalog-grid">
+                <!-- Dynamic Content -->
+            </div>
+        </section>
+
+        <!-- ================= PAGE 5: SHOES SECTION ================= -->
+        <section id="page-shoes" class="hidden space-y-6">
+            <div>
+                <h1 class="text-2xl font-bold">ფეხსაცმლის კოლექცია</h1>
+                <p class="text-gray-500 text-sm">ბოტასები, ჩექმები, მაღალქუსლიანი და ყოველდღიური ფეხსაცმელი</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5" id="shoes-catalog-grid"></div>
+        </section>
+
+        <!-- ================= PAGE 6: BAGS SECTION ================= -->
+        <section id="page-bags" class="hidden space-y-6">
+            <div>
+                <h1 class="text-2xl font-bold">ჩანთების განყოფილება</h1>
+                <p class="text-gray-500 text-sm">მხარზე გადასაკიდი, პატარა საღამოს ჩანთები, ვინტაჟური და ზურგჩანთები</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5" id="bags-catalog-grid"></div>
+        </section>
+
+        <!-- ================= PAGE 7: ACCESSORIES SECTION ================= -->
+        <section id="page-accessories" class="hidden space-y-6">
+            <div>
+                <h1 class="text-2xl font-bold">აქსესუარები</h1>
+                <p class="text-gray-500 text-sm">ყელსაბამები, საყურეები, სათვალეები, ქამრები და საათები</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5" id="accessories-catalog-grid"></div>
+        </section>
+
+        <!-- ================= PAGE 8: MY WARDROBE (USER UPLOADED) ================= -->
+        <section id="page-wardrobe" class="hidden space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center gap-2">
+                        👗 ჩემი ციფრული გარდერობი
+                    </h1>
+                    <p class="text-gray-500 text-sm">თქვენ მიერ ატვირთული და შენახული პირადი ტანსაცმელი</p>
+                </div>
+                <button onclick="openUploadModal()" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-md transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> ახალი ნივთის დამატება
+                </button>
+            </div>
+
+            <!-- Wardrobe Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5" id="my-wardrobe-grid">
+                <!-- User Items will be rendered here -->
+            </div>
+        </section>
+
+        <!-- ================= PAGE 9: FAVORITE OUTFITS ================= -->
+        <section id="page-favorites" class="hidden space-y-6">
+            <div>
+                <h1 class="text-2xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-pink-500"></i> რჩეული აუთფიტები
+                </h1>
+                <p class="text-gray-500 text-sm">შენახული ლუქების პირადი კოლექციები</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="saved-outfits-grid">
+                <!-- Saved Outfit Cards dynamically rendered -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= CAMERA & UPLOAD MODAL ================= -->
+    <div id="upload-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-camera text-pink-500"></i> საკუთარი ტანსაცმლის დამატება
+                </h3>
+                <button onclick="closeUploadModal()" class="text-gray-400 hover:text-gray-600 text-lg p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Upload Method Tabs -->
+            <div class="grid grid-cols-2 gap-2 bg-gray-100 p-1 rounded-xl text-xs font-semibold">
+                <button onclick="switchUploadMethod('file')" id="tab-upload-file" class="py-2 rounded-lg bg-white shadow-xs text-pink-600">
+                    <i class="fa-solid fa-image mr-1"></i> გალერეიდან ატვირთვა
+                </button>
+                <button onclick="switchUploadMethod('camera')" id="tab-upload-camera" class="py-2 rounded-lg text-gray-600 hover:bg-white/50">
+                    <i class="fa-solid fa-video mr-1"></i> კამერის ჩართვა
+                </button>
+            </div>
+
+            <!-- File Upload Option Area -->
+            <div id="area-upload-file" class="space-y-4">
+                <div class="border-2 border-dashed border-pink-200 hover:border-pink-400 rounded-2xl p-6 text-center cursor-pointer bg-pink-50/30 transition-colors" onclick="document.getElementById('file-input').click()">
+                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-pink-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-700">დააჭირეთ ფოტოს ასარჩევად</p>
+                    <p class="text-[10px] text-gray-400 mt-1">PNG, JPG ან WEBP (მაქს. 5MB)</p>
+                    <input type="file" id="file-input" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                </div>
+            </div>
+
+            <!-- Live Camera Capture Area -->
+            <div id="area-upload-camera" class="hidden space-y-3 text-center">
+                <div class="relative w-full h-56 bg-black rounded-2xl overflow-hidden flex items-center justify-center">
+                    <video id="camera-stream" autoplay playsinline class="w-full h-full object-cover"></video>
+                    <canvas id="camera-canvas" class="hidden"></canvas>
+                </div>
+                <button onclick="captureCameraPhoto()" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-full text-xs font-semibold shadow-md">
+                    <i class="fa-solid fa-circle-dot mr-1"></i> ფოტოს გადაღება
+                </button>
+            </div>
+
+            <!-- Preview & Image Adjustments -->
+            <div id="upload-preview-container" class="hidden space-y-4 border-t border-gray-100 pt-4">
+                <div class="text-xs font-bold text-gray-700">ფოტოს გადახედვა & რედაქტირება:</div>
+                <div class="w-32 h-32 mx-auto rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center justify-center">
+                    <img id="upload-preview-img" src="" class="max-w-full max-h-full object-contain">
+                </div>
+
+                <!-- Basic Image Editor Sliders -->
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div>
+                        <label class="block text-gray-500 mb-1">სიკაშკაშე</label>
+                        <input type="range" id="slider-brightness" min="50" max="150" value="100" oninput="updateImageFilters()" class="w-full accent-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1">კონტრასტი</label>
+                        <input type="range" id="slider-contrast" min="50" max="150" value="100" oninput="updateImageFilters()" class="w-full accent-pink-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item Metadata Form -->
+            <form id="upload-form" onsubmit="saveUserItem(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">ნივთის დასახელება *</label>
+                    <input type="text" id="item-title" required placeholder="მაგ: ჩემი ვარდისფერი პერანგი" class="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">კატეგორია *</label>
+                        <select id="item-category" required class="w-full px-3 py-2 rounded-xl border border-gray-200">
+                            <option value="ზედა">ზედა ტანსაცმელი</option>
+                            <option value="ქვედა">ქვედა / შარვალი</option>
+                            <option value="ქურთუკი">ქურთუკი / პალტო</option>
+                            <option value="ფეხსაცმელი">ფეხსაცმელი</option>
+                            <option value="ჩანთა">ჩანთა</option>
+                            <option value="აქსესუარი">აქსესუარი</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">სტილი</label>
+                        <select id="item-style" class="w-full px-3 py-2 rounded-xl border border-gray-200">
+                            <option value="ყოველდღიური">ყოველდღიური</option>
+                            <option value="Coquette">კოკეტის სტილი (Coquette)</option>
+                            <option value="Old Money">ძველი ფული (Old Money)</option>
+                            <option value="Clean Girl">მინიმალისტური</option>
+                            <option value="Streetwear">ქუჩის სტილი</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeUploadModal()" class="px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-semibold">გაუქმება</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-semibold shadow-md">გარდერობში შენახვა</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SAVE OUTFIT MODAL -->
+    <div id="save-outfit-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl">
+            <h3 class="text-base font-bold text-gray-900">აუთფიტის შენახვა</h3>
+            <p class="text-xs text-gray-500">მიუთითეთ სახელი თქვენი ახალი ლუქისთვის</p>
+            <input type="text" id="save-outfit-title" placeholder="მაგ: გაზაფხულის სეირნობა" class="w-full px-3 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+            <div class="flex justify-end gap-2 pt-2 text-xs font-semibold">
+                <button onclick="closeSaveOutfitModal()" class="px-4 py-2 rounded-xl border border-gray-200 text-gray-600">გაუქმება</button>
+                <button onclick="confirmSaveOutfit()" class="px-4 py-2 rounded-xl bg-pink-500 text-white">შენახვა</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-pink-100 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-7 h-7 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-bold">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <span class="font-bold text-pink-700">ქართული მოდის სტუდია</span>
+            </div>
+            <p class="text-xs text-gray-500 max-w-md mx-auto">
+                თქვენი პერსონალური ციფრული მოდის სივრცე. შექმენით, შეახამეთ და შეინახეთ საუკეთესო აუთფიტები.
+            </p>
+            <div class="text-[11px] text-gray-400">
+                &copy; 2026 ქართული მოდა. ყველა უფლება დაცულია.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS APP LOGIC -->
+    <script>
+        /* ================= STATE & MOCK DATABASE ================= */
+
+        // Default Catalog Items Database
+        const initialCatalog = [
+            // ზედა / Tops
+            { id: '1', title: 'აბრეშუმის ვარდისფერი ბლუზა', category: 'ზედა', type: 'პერანგი', style: 'Coquette', season: 'გაზაფხული', color: 'ვარდისფერი', img: 'https://images.unsplash.com/photo-1564257631407-4deb12e10756?q=80&w=600&auto=format&fit=crop' },
+            { id: '2', title: 'თეთრი მინიმალისტური მაისური', category: 'ზედა', type: 'მაისური', style: 'Clean Girl', season: 'ზაფხული', color: 'თეთრი', img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop' },
+            { id: '3', title: 'კლასიკური კრემისფერი სვიტერი', category: 'ზედა', type: 'სვიტერი', style: 'Old Money', season: 'შემოდგომა', color: 'კრემისფერი', img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600&auto=format&fit=crop' },
+            { id: '4', title: 'შავი ქუჩის სტილის ჰუდი', category: 'ზედა', type: 'სვიტერი', style: 'Streetwear', season: 'ზამთარი', color: 'შავი', img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop' },
+            
+            // ქურთუკები / Outerwear
+            { id: '5', title: 'ელეგანტური კრემისფერი ტრენჩი', category: 'ქურთუკი', type: 'პალტო', style: 'Old Money', season: 'შემოდგომა', color: 'კრემისფერი', img: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&auto=format&fit=crop' },
+            { id: '6', title: 'ტყავის შავი ქურთუკი', category: 'ქურთუკი', type: 'ქურთუკი', style: 'Streetwear', season: 'შემოდგომა', color: 'შავი', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop' },
+
+            // ქვედა / Bottoms
+            { id: '7', title: 'მაღალწელიანი ლურჯი ჯინსი', category: 'ქვედა', type: 'ჯინსი', style: 'Clean Girl', season: 'ყველა', color: 'ლურჯი', img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop' },
+            { id: '8', title: 'ვარდისფერი ატლასის ქვედაბოლო', category: 'ქვედა', type: 'ქვედაბოლო', style: 'Coquette', season: 'ზაფხული', color: 'ვარდისფერი', img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600&auto=format&fit=crop' },
+            { id: '9', title: 'კლასიკური შავი შარვალი', category: 'ქვედა', type: 'შარვალი', style: 'Old Money', season: 'ყველა', color: 'შავი', img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600&auto=format&fit=crop' },
+
+            // ფეხსაცმელი / Shoes
+            { id: '10', title: 'თეთრი სპორტული ბოტასი', category: 'ფეხსაცმელი', type: 'ბოტასი', style: 'Clean Girl', season: 'ყველა', color: 'თეთრი', img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop' },
+            { id: '11', title: 'შავი ტყავის ჩექმა', category: 'ფეხსაცმელი', type: 'ჩექმა', style: 'Dark Academia', season: 'ზამთარი', color: 'შავი', img: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop' },
+            { id: '12', title: 'ნაზი ვარდისფერი ბალეტკები', category: 'ფეხსაცმელი', type: 'ბალეტკი', style: 'Coquette', season: 'გაზაფხული', color: 'ვარდისფერი', img: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=600&auto=format&fit=crop' },
+
+            // ჩანთები / Bags
+            { id: '13', title: 'მინიმალისტური კრემისფერი ჩანთა', category: 'ჩანთა', type: 'მხარზე', style: 'Clean Girl', season: 'ყველა', color: 'კრემისფერი', img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop' },
+            { id: '14', title: 'პატარა შავი საღამოს ჩანთა', category: 'ჩანთა', type: 'პატარა', style: 'Old Money', season: 'ყველა', color: 'შავი', img: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=600&auto=format&fit=crop' },
+
+            // აქსესუარები / Accessories
+            { id: '15', title: 'ოქროსფერი ნაზი ყელსაბამი', category: 'აქსესუარი', type: 'ყელსაბამი', style: 'Coquette', season: 'ყველა', color: 'ოქროსფერი', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop' },
+            { id: '16', title: 'რეტრო მზის სათვალე', category: 'აქსესუარი', type: 'სათვალე', style: 'Y2K', season: 'ზაფხული', color: 'ყავისფერი', img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop' }
+        ];
+
+        // Fashion Styles Definitions
+        const fashionStyles = [
+            { id: 'coquette', name: 'კოკეტის სტილი', orig: 'Coquette', desc: 'ნაზი, რომანტიკული, ვარდისფერი ტონები, ბაფთები და ატლასი.', img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=600&auto=format&fit=crop' },
+            { id: 'oldmoney', name: 'ძველი ფულის სტილი', orig: 'Old Money', desc: 'დახვეწილი, ელეგანტური, კლასიკური ჭრილები და ნეიტრალური ფერები.', img: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&auto=format&fit=crop' },
+            { id: 'cleangirl', name: 'მინიმალისტური', orig: 'Clean Girl', desc: 'სუფთა, ყოველდღიური, კომფორტული და თანამედროვე ესთეტიკა.', img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop' },
+            { id: 'streetwear', name: 'ქუჩის სტილი', orig: 'Streetwear', desc: 'თავისუფალი, ურბანული, ჰუდები და ბოტასები.', img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop' },
+            { id: 'y2k', name: '2000-იანების სტილი', orig: 'Y2K', desc: 'კაშკაშა ფერები, დაბალი წელი და ვინტაჟური აქსესუარები.', img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop' },
+            { id: 'darkacademia', name: 'მუქი აკადემიური', orig: 'Dark Academia', desc: 'შემოდგომის ტონები, პლეიდი, პალტოები და წიგნის ესთეტიკა.', img: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop' }
+        ];
+
+        // Active Outfit Slots State
+        let currentOutfit = {
+            top: null,
+            bottom: null,
+            outerwear: null,
+            shoes: null,
+            bag: null,
+            accessory: null
+        };
+
+        // User Saved Data (LocalStorage)
+        let userWardrobe = JSON.parse(localStorage.getItem('user_wardrobe') || '[]');
+        let savedOutfits = JSON.parse(localStorage.getItem('saved_outfits') || '[]');
+
+        // Camera Stream Global Variable
+        let mediaStream = null;
+        let activeCapturedImageBase64 = null;
+
+        /* ================= INITIALIZATION ================= */
+        window.addEventListener('DOMContentLoaded', () => {
+            renderHomeStyles();
+            renderHomeCatalog();
+            renderStudioPicker('all');
+            renderStylesPage();
+            renderCatalogPage(initialCatalog);
+            renderSubCatalogs();
+            renderUserWardrobe();
+            renderSavedOutfits();
+        });
+
+        /* ================= NAVIGATION TABS ================= */
+        function switchTab(tabId) {
+            // Hide all pages
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            
+            // Deactivate nav highlights
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Show selected page
+            const target = document.getElementById(`page-${tabId}`);
+            if (target) target.classList.remove('hidden');
+
+            // Highlight nav
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeNav) activeNav.classList.add('active');
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        /* ================= TOAST NOTIFICATION ================= */
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto px-4 py-3 rounded-2xl shadow-xl text-xs font-semibold flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 ${
+                type === 'success' ? 'bg-zinc-900 text-white border border-pink-500/40' : 'bg-red-500 text-white'
+            }`;
+            toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check text-pink-400' : 'fa-circle-exclamation'}"></i> ${message}`;
+            
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        /* ================= RENDERING HOME PAGE ================= */
+        function renderHomeStyles() {
+            const grid = document.getElementById('home-styles-grid');
+            grid.innerHTML = fashionStyles.map(s => `
+                <div onclick="filterCatalogByStyle('${s.orig}')" class="group cursor-pointer bg-white rounded-2xl p-3 border border-pink-100/70 hover:border-pink-300 shadow-xs hover:shadow-md transition-all text-center">
+                    <div class="w-16 h-16 mx-auto rounded-full overflow-hidden mb-2 border border-pink-200">
+                        <img src="${s.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <div class="text-xs font-bold text-gray-800 line-clamp-1">${s.name}</div>
+                    <div class="text-[10px] text-pink-500 font-medium">(${s.orig})</div>
+                </div>
+            `).join('');
+        }
+
+        function renderHomeCatalog(filterCat = 'all') {
+            const grid = document.getElementById('home-catalog-grid');
+            let items = [...initialCatalog, ...userWardrobe];
+            if (filterCat !== 'all') {
+                items = items.filter(i => i.category === filterCat);
+            }
+            grid.innerHTML = items.slice(0, 5).map(item => createItemCardHTML(item)).join('');
+        }
+
+        function filterHomeCatalog(cat) {
+            renderHomeCatalog(cat);
+        }
+
+        /* ================= ITEM CARD HTML TEMPLATE ================= */
+        function createItemCardHTML(item) {
+            return `
+                <div class="group bg-white rounded-2xl p-3 border border-pink-100 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="relative w-full h-40 bg-pink-50/30 rounded-xl overflow-hidden mb-2 flex items-center justify-center">
+                        <img src="${item.img}" class="max-w-full max-h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-2 left-2 bg-white/80 backdrop-blur-xs text-[10px] text-pink-600 font-bold px-2 py-0.5 rounded-full">
+                            ${item.category}
+                        </span>
+                    </div>
+                    <div class="space-y-1 mb-2">
+                        <div class="text-xs font-bold text-gray-800 line-clamp-1">${item.title}</div>
+                        <div class="text-[10px] text-gray-400 flex items-center justify-between">
+                            <span>${item.style || 'სტილი'}</span>
+                            <span class="text-pink-500 font-medium">${item.season || ''}</span>
+                        </div>
+                    </div>
+                    <button onclick="addToOutfit('${item.id}')" class="w-full py-2 bg-pink-50 hover:bg-pink-500 text-pink-600 hover:text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus text-[10px]"></i> აუთფიტში დამატება
+                    </button>
+                </div>
+            `;
+        }
+
+        /* ================= OUTFIT STUDIO / CANVAS LOGIC ================= */
+        let studioSource = 'all'; // 'all' or 'wardrobe'
+        let studioCategory = 'all';
+
+        function toggleStudioSource(source) {
+            studioSource = source;
+            document.getElementById('btn-source-all').className = source === 'all' ? 'text-xs font-semibold px-3 py-1.5 rounded-full bg-pink-500 text-white' : 'text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-pink-100';
+            document.getElementById('btn-source-wardrobe').className = source === 'wardrobe' ? 'text-xs font-semibold px-3 py-1.5 rounded-full bg-pink-500 text-white' : 'text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-pink-100';
+            renderStudioPicker();
+        }
+
+        function filterStudioCategory(cat) {
+            studioCategory = cat;
+            document.querySelectorAll('.studio-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-pink-100', 'text-pink-700', 'active');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+            event.target.classList.remove('bg-gray-100', 'text-gray-600');
+            event.target.classList.add('bg-pink-100', 'text-pink-700', 'active');
+            renderStudioPicker();
+        }
+
+        function renderStudioPicker() {
+            const grid = document.getElementById('studio-picker-grid');
+            let pool = studioSource === 'wardrobe' ? [...userWardrobe] : [...initialCatalog, ...userWardrobe];
+
+            if (studioCategory !== 'all') {
+                pool = pool.filter(i => i.category === studioCategory);
+            }
+
+            if (pool.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-8 text-center text-xs text-gray-400">ამ კატეგორიაში ნივთები არ არის</div>`;
+                return;
+            }
+
+            grid.innerHTML = pool.map(item => `
+                <div onclick="addToOutfit('${item.id}')" class="cursor-pointer bg-white rounded-xl p-2 border border-pink-100 hover:border-pink-400 hover:shadow-md transition-all text-center group relative">
+                    <div class="w-full h-24 bg-pink-50/20 rounded-lg overflow-hidden mb-1 flex items-center justify-center">
+                        <img src="${item.img}" class="max-w-full max-h-full object-cover group-hover:scale-105 transition-transform">
+                    </div>
+                    <div class="text-[11px] font-bold text-gray-800 line-clamp-1">${item.title}</div>
+                    <div class="text-[9px] text-pink-500">${item.category}</div>
+                </div>
+            `).join('');
+        }
+
+        function addToOutfit(itemId) {
+            const pool = [...initialCatalog, ...userWardrobe];
+            const item = pool.find(i => i.id === itemId);
+            if (!item) return;
+
+            // Map Category to Slot
+            let slotKey = 'top';
+            if (item.category === 'ზედა' || item.category === 'პერანგი' || item.category === 'სვიტერი' || item.category === 'კაბა') slotKey = 'top';
+            else if (item.category === 'ქვედა' || item.category === 'ქვედაბოლო') slotKey = 'bottom';
+            else if (item.category === 'ქურთუკი') slotKey = 'outerwear';
+            else if (item.category === 'ფეხსაცმელი') slotKey = 'shoes';
+            else if (item.category === 'ჩანთა') slotKey = 'bag';
+            else if (item.category === 'აქსესუარი') slotKey = 'accessory';
+
+            currentOutfit[slotKey] = item;
+            updateCanvasDisplay();
+            showToast(`„${item.title}“ დაემატა აუთფიტში`);
+
+            // Switch to Studio tab visually if added from elsewhere
+            if (document.getElementById('page-studio').classList.contains('hidden')) {
+                switchTab('studio');
+            }
+        }
+
+        function updateCanvasDisplay() {
+            let count = 0;
+            const slots = ['top', 'bottom', 'outerwear', 'shoes', 'bag', 'accessory'];
+
+            slots.forEach(slot => {
+                const el = document.getElementById(`slot-${slot}`);
+                const item = currentOutfit[slot];
+                if (item) {
+                    count++;
+                    el.innerHTML = `
+                        <img src="${item.img}" class="max-w-full max-h-full object-contain drop-shadow-md outfit-layer">
+                    `;
+                } else {
+                    el.innerHTML = `<span class="text-xs text-gray-300">არ არის</span>`;
+                }
+            });
+
+            document.getElementById('outfit-items-count').innerHTML = `<i class="fa-solid fa-shirt text-pink-500 mr-1"></i> შერჩეულია ${count} ნივთი`;
+        }
+
+        function clearSlot(slot) {
+            currentOutfit[slot] = null;
+            updateCanvasDisplay();
+        }
+
+        function clearOutfitCanvas() {
+            currentOutfit = { top: null, bottom: null, outerwear: null, shoes: null, bag: null, accessory: null };
+            updateCanvasDisplay();
+            showToast('აუთფიტი გასუფთავდა');
+        }
+
+        function randomizeOutfit() {
+            const pool = [...initialCatalog, ...userWardrobe];
+            const getRandom = (cat) => {
+                const filtered = pool.filter(i => i.category === cat);
+                if (filtered.length === 0) return null;
+                return filtered[Math.floor(Math.random() * filtered.length)];
+            };
+
+            currentOutfit = {
+                top: getRandom('ზედა') || getRandom('პერანგი'),
+                bottom: getRandom('ქვედა') || getRandom('ქვედაბოლო'),
+                outerwear: getRandom('ქურთუკი'),
+                shoes: getRandom('ფეხსაცმელი'),
+                bag: getRandom('ჩანთა'),
+                accessory: getRandom('აქსესუარი')
+            };
+
+            updateCanvasDisplay();
+            showToast('შექმნილია შემთხვევითი ლუქი! ✨');
+        }
+
+        /* ================= SAVE OUTFITS ================= */
+        function saveOutfitModal() {
+            const hasItems = Object.values(currentOutfit).some(val => val !== null);
+            if (!hasItems) {
+                showToast('აუთფიტი ცარიელია! ჯერ აირჩიეთ ნივთები.', 'error');
+                return;
+            }
+            document.getElementById('save-outfit-modal').classList.remove('hidden');
+        }
+
+        function closeSaveOutfitModal() {
+            document.getElementById('save-outfit-modal').classList.add('hidden');
+        }
+
+        function confirmSaveOutfit() {
+            const titleInput = document.getElementById('save-outfit-title').value.trim();
+            const title = titleInput || `აუთფიტი #${savedOutfits.length + 1}`;
+
+            const outfitObj = {
+                id: Date.now().toString(),
+                title: title,
+                date: new Date().toLocaleDateString('ka-GE'),
+                items: { ...currentOutfit }
+            };
+
+            savedOutfits.push(outfitObj);
+            localStorage.setItem('saved_outfits', JSON.stringify(savedOutfits));
+            
+            closeSaveOutfitModal();
+            document.getElementById('save-outfit-title').value = '';
+            renderSavedOutfits();
+            showToast('აუთფიტი წარმატებით შენახულია რჩეულებში!');
+        }
+
+        function renderSavedOutfits() {
+            const grid = document.getElementById('saved-outfits-grid');
+            if (savedOutfits.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-xs text-gray-400">შენახული აუთფიტები არ არის</div>`;
+                return;
+            }
+
+            grid.innerHTML = savedOutfits.map(o => `
+                <div class="bg-white rounded-3xl p-5 border border-pink-100 shadow-xs hover:shadow-md transition-all space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-sm text-gray-800">${o.title}</h3>
+                        <span class="text-[10px] text-gray-400">${o.date}</span>
+                    </div>
+
+                    <!-- Visual collage preview of saved items -->
+                    <div class="grid grid-cols-3 gap-2 bg-pink-50/40 p-3 rounded-2xl h-36 items-center">
+                        ${Object.values(o.items).filter(Boolean).map(item => `
+                            <div class="w-full h-full bg-white rounded-lg p-1 flex items-center justify-center border border-pink-100">
+                                <img src="${item.img}" class="max-w-full max-h-full object-contain">
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="loadSavedOutfit('${o.id}')" class="flex-1 py-2 bg-pink-500 text-white rounded-xl text-xs font-semibold hover:bg-pink-600 transition-colors">
+                            გახსნა სტუდიაში
+                        </button>
+                        <button onclick="deleteSavedOutfit('${o.id}')" class="p-2 text-gray-400 hover:text-red-500 transition-colors">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadSavedOutfit(id) {
+            const outfit = savedOutfits.find(o => o.id === id);
+            if (!outfit) return;
+            currentOutfit = { ...outfit.items };
+            updateCanvasDisplay();
+            switchTab('studio');
+            showToast(`ჩაიტვირთა ლუქი: ${outfit.title}`);
+        }
+
+        function deleteSavedOutfit(id) {
+            savedOutfits = savedOutfits.filter(o => o.id !== id);
+            localStorage.setItem('saved_outfits', JSON.stringify(savedOutfits));
+            renderSavedOutfits();
+            showToast('აუთფიტი წაიშალა');
+        }
+
+        /* ================= STYLES PAGE ================= */
+        function renderStylesPage() {
+            const grid = document.getElementById('all-styles-grid');
+            grid.innerHTML = fashionStyles.map(s => `
+                <div class="bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-xs hover:shadow-lg transition-all group flex flex-col justify-between">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${s.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                            <div>
+                                <h3 class="text-white font-bold text-base">${s.name}</h3>
+                                <span class="text-pink-300 text-xs font-medium">(${s.orig})</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <p class="text-xs text-gray-500 leading-relaxed">${s.desc}</p>
+                        <button onclick="filterCatalogByStyle('${s.orig}')" class="w-full py-2 bg-pink-50 text-pink-600 hover:bg-pink-500 hover:text-white rounded-xl text-xs font-semibold transition-colors">
+                            ამ სტილის დათვალიერება
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCatalogByStyle(styleName) {
+            switchTab('catalog');
+            document.getElementById('filter-style').value = styleName;
+            applyCatalogFilters();
+        }
+
+        /* ================= FULL CATALOG LOGIC ================= */
+        function renderCatalogPage(items) {
+            const grid = document.getElementById('full-catalog-grid');
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-xs text-gray-400">შედეგი არ მოიძებნა</div>`;
+                return;
+            }
+            grid.innerHTML = items.map(item => createItemCardHTML(item)).join('');
+        }
+
+        function applyCatalogFilters() {
+            const cat = document.getElementById('filter-category').value;
+            const style = document.getElementById('filter-style').value;
+            const season = document.getElementById('filter-season').value;
+            const query = document.getElementById('catalog-search').value.toLowerCase().trim();
+
+            let pool = [...initialCatalog, ...userWardrobe];
+
+            if (cat !== 'all') pool = pool.filter(i => i.category === cat);
+            if (style !== 'all') pool = pool.filter(i => i.style === style);
+            if (season !== 'all') pool = pool.filter(i => i.season === season);
+            if (query) pool = pool.filter(i => i.title.toLowerCase().includes(query));
+
+            renderCatalogPage(pool);
+        }
+
+        function resetCatalogFilters() {
+            document.getElementById('filter-category').value = 'all';
+            document.getElementById('filter-style').value = 'all';
+            document.getElementById('filter-season').value = 'all';
+            document.getElementById('catalog-search').value = '';
+            renderCatalogPage([...initialCatalog, ...userWardrobe]);
+        }
+
+        /* ================= SUB-CATALOGS (SHOES, BAGS, ACCESSORIES) ================= */
+        function renderSubCatalogs() {
+            const pool = [...initialCatalog, ...userWardrobe];
+            
+            // Shoes
+            const shoes = pool.filter(i => i.category === 'ფეხსაცმელი');
+            document.getElementById('shoes-catalog-grid').innerHTML = shoes.map(item => createItemCardHTML(item)).join('');
+
+            // Bags
+            const bags = pool.filter(i => i.category === 'ჩანთა');
+            document.getElementById('bags-catalog-grid').innerHTML = bags.map(item => createItemCardHTML(item)).join('');
+
+            // Accessories
+            const accs = pool.filter(i => i.category === 'აქსესუარი');
+            document.getElementById('accessories-catalog-grid').innerHTML = accs.map(item => createItemCardHTML(item)).join('');
+        }
+
+        /* ================= USER UPLOAD & CAMERA MODAL LOGIC ================= */
+        function openUploadModal() {
+            document.getElementById('upload-modal').classList.remove('hidden');
+        }
+
+        function closeUploadModal() {
+            document.getElementById('upload-modal').classList.add('hidden');
+            stopCameraStream();
+            resetUploadForm();
+        }
+
+        function switchUploadMethod(method) {
+            if (method === 'file') {
+                document.getElementById('area-upload-file').classList.remove('hidden');
+                document.getElementById('area-upload-camera').classList.add('hidden');
+                document.getElementById('tab-upload-file').className = 'py-2 rounded-lg bg-white shadow-xs text-pink-600';
+                document.getElementById('tab-upload-camera').className = 'py-2 rounded-lg text-gray-600 hover:bg-white/50';
+                stopCameraStream();
+            } else {
+                document.getElementById('area-upload-file').classList.add('hidden');
+                document.getElementById('area-upload-camera').classList.remove('hidden');
+                document.getElementById('tab-upload-camera').className = 'py-2 rounded-lg bg-white shadow-xs text-pink-600';
+                document.getElementById('tab-upload-file').className = 'py-2 rounded-lg text-gray-600 hover:bg-white/50';
+                startCameraStream();
+            }
+        }
+
+        function startCameraStream() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+                    .then(stream => {
+                        mediaStream = stream;
+                        const video = document.getElementById('camera-stream');
+                        video.srcObject = stream;
+                    })
+                    .catch(err => {
+                        showToast('კამერასთან წვდომა შეუძლებელია. გამოიყენეთ გალერეა.', 'error');
+                        switchUploadMethod('file');
+                    });
+            } else {
+                showToast('თქვენს მოწყობილობას არ აქვს კამერის მხარდაჭერა.', 'error');
+                switchUploadMethod('file');
+            }
+        }
+
+        function stopCameraStream() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+        }
+
+        function captureCameraPhoto() {
+            const video = document.getElementById('camera-stream');
+            const canvas = document.getElementById('camera-canvas');
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 480;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            activeCapturedImageBase64 = canvas.toDataURL('image/png');
+            showImagePreview(activeCapturedImageBase64);
+            stopCameraStream();
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                activeCapturedImageBase64 = evt.target.result;
+                showImagePreview(activeCapturedImageBase64);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showImagePreview(base64Src) {
+            const container = document.getElementById('upload-preview-container');
+            const img = document.getElementById('upload-preview-img');
+            img.src = base64Src;
+            container.classList.remove('hidden');
+        }
+
+        function updateImageFilters() {
+            const brightness = document.getElementById('slider-brightness').value;
+            const contrast = document.getElementById('slider-contrast').value;
+            const img = document.getElementById('upload-preview-img');
+            img.style.filter = `brightness(${brightness}%) contrast(${contrast}%)`;
+        }
+
+        function saveUserItem(e) {
+            e.preventDefault();
+
+            if (!activeCapturedImageBase64) {
+                showToast('გთხოვთ ჯერ გადაიღოთ ან ატვირთოთ ფოტო', 'error');
+                return;
+            }
+
+            const title = document.getElementById('item-title').value.trim();
+            const category = document.getElementById('item-category').value;
+            const style = document.getElementById('item-style').value;
+
+            const newItem = {
+                id: 'user_' + Date.now(),
+                title: title,
+                category: category,
+                style: style,
+                season: 'ყველა',
+                color: 'საკუთარი',
+                img: activeCapturedImageBase64,
+                isUserUploaded: true
+            };
+
+            userWardrobe.unshift(newItem);
+            localStorage.setItem('user_wardrobe', JSON.stringify(userWardrobe));
+
+            closeUploadModal();
+            renderUserWardrobe();
+            renderHomeCatalog();
+            renderSubCatalogs();
+            renderStudioPicker();
+            showToast('ნივთი წარმატებით დაემატა თქვენს გარდერობს! 👗');
+        }
+
+        function resetUploadForm() {
+            document.getElementById('upload-form').reset();
+            document.getElementById('upload-preview-container').classList.add('hidden');
+            activeCapturedImageBase64 = null;
+        }
+
+        /* ================= MY WARDROBE PAGE ================= */
+        function renderUserWardrobe() {
+            const grid = document.getElementById('my-wardrobe-grid');
+            if (userWardrobe.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center space-y-3 bg-white rounded-3xl border border-pink-100 p-8">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-pink-50 flex items-center justify-center text-pink-400 text-2xl">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-700 text-sm">თქვენი გარდერობი ცარიელია</h3>
+                        <p class="text-xs text-gray-400 max-w-xs mx-auto">გადაიღეთ ფოტო ან ატვირთეთ სურათები გალერეიდან პირად გარდერობში შესანახად</p>
+                        <button onclick="openUploadModal()" class="px-5 py-2.5 bg-pink-500 text-white rounded-full text-xs font-semibold shadow-md">
+                            ფოტოს დამატება
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = userWardrobe.map(item => `
+                <div class="group bg-white rounded-2xl p-3 border border-pink-100 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative">
+                    <button onclick="deleteUserItem('${item.id}')" class="absolute top-2 right-2 z-10 w-6 h-6 bg-red-500/80 hover:bg-red-600 text-white rounded-full text-[10px] flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <div class="relative w-full h-40 bg-pink-50/20 rounded-xl overflow-hidden mb-2 flex items-center justify-center">
+                        <img src="${item.img}" class="max-w-full max-h-full object-cover">
+                    </div>
+
+                    <div class="space-y-1 mb-2">
+                        <div class="text-xs font-bold text-gray-800 line-clamp-1">${item.title}</div>
+                        <div class="text-[10px] text-pink-500 font-medium">${item.category}</div>
+                    </div>
+
+                    <button onclick="addToOutfit('${item.id}')" class="w-full py-2 bg-pink-500 text-white rounded-xl text-xs font-semibold hover:bg-pink-600 transition-colors">
+                        აუთფიტში დამატება
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function deleteUserItem(id) {
+            userWardrobe = userWardrobe.filter(item => item.id !== id);
+            localStorage.setItem('user_wardrobe', JSON.stringify(userWardrobe));
+            renderUserWardrobe();
+            renderHomeCatalog();
+            renderSubCatalogs();
+            renderStudioPicker();
+            showToast('ნივთი წაიშალა გარდერობიდან');
+        }
+    </script>
+</body>
+</html>
